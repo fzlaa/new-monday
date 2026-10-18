@@ -36,65 +36,38 @@
 
   /* ---------- Film player ---------- */
 
+  // Native <video>: poster + design play button first, then the browser's own
+  // controls (pause, volume, fullscreen). Sound is on because play starts from a click.
   const frame = document.querySelector('[data-player]');
   const video = frame.querySelector('video');
-  const source = video.querySelector('source');
-  const toggle = frame.querySelector('[data-player-toggle]');
-  const label = frame.querySelector('[data-player-label]');
-  const bar = frame.querySelector('[data-player-bar]');
-  const time = frame.querySelector('[data-player-time]');
-  const track = frame.querySelector('[data-player-track]');
-  const progress = frame.querySelector('[data-player-progress]');
+  const playBtn = frame.querySelector('[data-player-play]');
 
-  const fmt = (x) => Math.floor(x / 60) + ':' + String(Math.floor(x % 60)).padStart(2, '0');
-  const duration = () => (Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 60);
-  let available = true;
-
-  const render = () => {
-    const playing = !video.paused && !video.ended;
-    frame.classList.toggle('is-playing', playing);
-    toggle.setAttribute('aria-label', playing ? 'Mettre la vidéo en pause' : 'Lire la vidéo');
-    bar.hidden = !(playing || video.currentTime > 0);
-    time.textContent = fmt(video.currentTime) + ' / ' + fmt(duration());
-    progress.style.width = (video.currentTime / duration() * 100) + '%';
+  const start = () => {
+    frame.classList.add('is-started');
+    video.controls = true;
+    const p = video.play();
+    if (p && p.catch) p.catch(() => {});
+    video.focus({ preventScroll: true });
   };
 
-  const markUnavailable = () => {
-    available = false;
-    frame.classList.remove('is-ready');
-  };
-
-  video.addEventListener('loadeddata', () => frame.classList.add('is-ready'));
-  source.addEventListener('error', markUnavailable);
-  video.addEventListener('error', markUnavailable);
-  // The file may have loaded (or failed) before this deferred script ran.
-  if (video.readyState >= 2) frame.classList.add('is-ready');
-  ['play', 'pause', 'timeupdate', 'loadedmetadata'].forEach((ev) => video.addEventListener(ev, render));
-  video.addEventListener('ended', () => { video.currentTime = 0; render(); });
-
-  const togglePlay = () => {
-    if (video.readyState === 0 && video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) markUnavailable();
-    if (!available) {
-      label.textContent = 'Le film arrive très bientôt';
-      return;
-    }
-    if (video.paused) video.play().catch(() => {});
-    else video.pause();
-  };
-
-  toggle.addEventListener('click', togglePlay);
-  video.addEventListener('click', togglePlay);
-  track.addEventListener('click', (e) => {
-    const r = track.getBoundingClientRect();
-    video.currentTime = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * duration();
+  playBtn.addEventListener('click', start);
+  // Before the first play, a click anywhere on the poster starts the film too.
+  video.addEventListener('click', () => { if (!frame.classList.contains('is-started')) start(); });
+  // Back to the poster and the big play button once the film is over.
+  video.addEventListener('ended', () => {
+    if (document.fullscreenElement === video) document.exitFullscreen().catch(() => {});
+    if (video.webkitDisplayingFullscreen) video.webkitExitFullscreen();
+    video.controls = false;
+    frame.classList.remove('is-started');
+    video.load();
   });
 
   /* ---------- Testimonials ---------- */
 
   const QUOTES = [
-    { q: '« Je pensais que l’IA, c’était pour les développeurs. Maintenant, c’est moi que mes collègues viennent voir. »', who: 'Nadia B.', role: 'Assistante de direction, groupe industriel' },
-    { q: '« Mon premier compte-rendu en dix minutes. J’ai cru que j’avais oublié quelque chose. »', who: 'Thomas L.', role: 'Contrôleur de gestion, groupe de distribution' },
-    { q: '« On a travaillé sur nos vrais contrats. Le lundi suivant, je m’en servais déjà. »', who: 'Claire M.', role: 'Juriste, groupe de services' },
+    { q: '« Je pensais que l’IA, c’était pour les développeurs. Maintenant, c’est moi que mes collègues viennent voir. »', who: 'Nadia B.', img: 'images/temoignage-nadia.jpg', role: 'Assistante de direction, groupe industriel' },
+    { q: '« Mon premier compte-rendu en dix minutes. J’ai cru que j’avais oublié quelque chose. »', who: 'Thomas L.', img: 'images/temoignage-thomas.jpg', role: 'Contrôleur de gestion, groupe de distribution' },
+    { q: '« On a travaillé sur nos vrais contrats. Le lundi suivant, je m’en servais déjà. »', who: 'Claire M.', img: 'images/temoignage-claire.jpg', role: 'Juriste, groupe de services' },
   ];
 
   const quotes = document.querySelector('[data-quotes]');
@@ -102,6 +75,7 @@
   const qText = quotes.querySelector('[data-quote-text]');
   const qWho = quotes.querySelector('[data-quote-who]');
   const qRole = quotes.querySelector('[data-quote-role]');
+  const qImg = quotes.querySelector('[data-quote-img]');
   const dotsWrap = quotes.querySelector('[data-quote-dots]');
   let qi = 0;
   let fadeTimer;
@@ -115,6 +89,8 @@
     dotsWrap.appendChild(d);
     return d;
   });
+  // Preload the other portraits so the swap stays smooth.
+  QUOTES.forEach((q) => { new Image().src = q.img; });
   const syncDots = () => dots.forEach((d, i) => d.setAttribute('aria-current', String(i === qi)));
   syncDots();
 
@@ -128,6 +104,7 @@
       qText.textContent = QUOTES[qi].q;
       qWho.textContent = QUOTES[qi].who;
       qRole.textContent = QUOTES[qi].role;
+      qImg.src = QUOTES[qi].img;
       syncDots();
       fade.classList.remove('is-fading');
     }, 220);
