@@ -5,14 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nouveau Lundi · Formations à l’IA générative pour les fonctions support</title>
 <meta name="description" content="Nouveau Lundi forme les équipes RH, finance, juridique, achats, communication et assistanat à l’IA générative, tranquillement et concrètement. Sans jargon, sans prérequis.">
-<meta property="og:title" content="Nouveau Lundi">
-<meta property="og:description" content="L’IA générative arrive dans votre bureau. Nous formons les fonctions support à s’en servir, tranquillement et concrètement.">
+<meta name="theme-color" content="#fdfaf3">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<!-- Aperçu de partage. Open Graph exige des URL absolues : à ajuster si l’adresse du site change. -->
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#fcf9f3">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Nouveau Lundi">
+<meta property="og:title" content="Nouveau Lundi · L’IA générative, sans jargon">
+<meta property="og:description" content="L’IA générative arrive dans votre bureau. Nous formons les fonctions support à s’en servir, tranquillement et concrètement.">
+<meta property="og:url" content="https://fzlaa.github.io/new-monday/">
+<meta property="og:image" content="https://fzlaa.github.io/new-monday/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nouveau Lundi, formations à l’IA générative pour les fonctions support">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&amp;family=Albert+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="css/styles.css">
 <script>
   // Hide [data-reveal] blocks before first paint; main.js reveals them on scroll.
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-on');
@@ -85,20 +96,13 @@
       </div>
       <div data-reveal="120" class="film__stage">
         <div class="film__frame" data-player>
-          <!-- Déposer la publicité dans site/video/pub.mp4 : elle remplace automatiquement le placeholder. -->
-          <video class="film__video" preload="metadata" playsinline aria-label="Publicité Nouveau Lundi">
-            <source src="video/pub.mp4#t=0.1" type="video/mp4">
+          <!-- Remplacer video/pub.mp4 (et images/video-poster.jpg) suffit : aucun code à modifier. -->
+          <video class="film__video" src="video/pub.mp4" poster="images/video-poster.jpg" preload="metadata" playsinline webkit-playsinline aria-label="Publicité Nouveau Lundi, environ une minute">
+            <a href="video/pub.mp4">Télécharger la vidéo (MP4)</a>
           </video>
-          <div class="film__placeholder" aria-hidden="true"></div>
-          <div class="film__label" data-player-label>video/pub.mp4 · 16:9 · ≈ 1 min</div>
-          <button class="film__play" type="button" aria-label="Lire la vidéo" data-player-toggle>
+          <button class="film__play" type="button" aria-label="Lire la vidéo" data-player-play>
             <span class="film__icon-play" aria-hidden="true"></span>
-            <span class="film__icon-pause" aria-hidden="true"><span></span><span></span></span>
           </button>
-          <div class="film__bar" data-player-bar hidden>
-            <span class="film__time" data-player-time>0:00 / 1:00</span>
-            <span class="film__track" data-player-track><span class="film__progress" data-player-progress></span></span>
-          </div>
         </div>
         <div class="film__badge" aria-hidden="true">
           <span class="film__badge-time">1:00</span>
@@ -201,14 +205,12 @@
       <p class="trainers__lead">Avant de former, ils ont travaillé en RH, en finance, au juridique ou en assistanat. Ils parlent votre langue, et ils savent qu’un lundi, ça peut être long.</p>
     </div>
     <div data-reveal="150" class="trainers__media">
-      <!-- Emplacements photo : déposer site/images/atelier.jpg et site/images/formatrice.jpg -->
+      <!-- Photos à remplacer : images/atelier.jpg (16:10) et images/formatrice.jpg (carré). -->
       <div class="photo photo--atelier">
-        <img src="images/atelier.jpg" alt="Un atelier Nouveau Lundi : des participants rient autour d’une table" loading="lazy" onerror="this.remove()">
-        <span class="photo__label">photo · atelier, rires autour d’une table</span>
+        <img src="images/atelier.jpg" width="1600" height="1000" alt="Un atelier Nouveau Lundi : des participants rient autour d’une table" loading="lazy" decoding="async">
       </div>
       <div class="photo photo--trainer">
-        <img src="images/formatrice.jpg" alt="Une formatrice Nouveau Lundi" loading="lazy" onerror="this.remove()">
-        <span class="photo__label">photo · formatrice</span>
+        <img src="images/formatrice.jpg" width="800" height="800" alt="Portrait d’une formatrice Nouveau Lundi" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -219,7 +221,7 @@
     <div class="quotes__fade" aria-live="polite">
       <blockquote class="quotes__text" data-quote-text>« Je pensais que l’IA, c’était pour les développeurs. Maintenant, c’est moi que mes collègues viennent voir. »</blockquote>
       <div class="quotes__author">
-        <span class="quotes__avatar" aria-hidden="true"></span>
+        <img class="quotes__avatar" src="images/temoignage-nadia.jpg" width="200" height="200" alt="" data-quote-img>
         <span class="quotes__who"><b data-quote-who>Nadia B.</b><br><span data-quote-role>Assistante de direction, groupe industriel</span></span>
       </div>
     </div>
@@ -299,6 +301,6 @@
 </footer>
 
 </div>
-<script src="assets/js/main.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
