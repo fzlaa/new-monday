@@ -361,10 +361,10 @@ section[id] { scroll-margin-top: clamp(64px, 5.5vw, 80px); }
   line-height: 1.5;
 }
 
-/* The film fits on screen: at most 960px wide, and never taller than the window minus the header. */
+/* The film fits on screen: at most 1120px wide, and never taller than the window minus the header. */
 .film__stage {
   position: relative;
-  max-width: clamp(320px, calc((100svh - 240px) * 16 / 9), 960px);
+  max-width: clamp(320px, calc((100svh - 200px) * 16 / 9), 1120px);
   margin: clamp(24px, 3cqi, 44px) auto 0;
 }
 
