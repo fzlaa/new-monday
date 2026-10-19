@@ -5,7 +5,7 @@ Site vitrine one-page statique (HTML, CSS, JS, sans build) d'un organisme de for
 ## Structure
 
 - `index.html`, `css/styles.css`, `js/main.js` : le site, fidèle à la maquette « Grand jour » de Claude Design. Mobile sous 760 px (container queries sur `.page`).
-- `video/pub.mp4` : la pub. Pour l'instant une vidéo placeholder de 6 s. Le lecteur est une balise `<video>` native (poster, bouton de la maquette, contrôles natifs après le clic) : remplacer le fichier suffit, aucun code à changer.
+- `video/pub.mp4` : la pub (50 s). Le lecteur est une balise `<video>` native (poster, bouton de la maquette, contrôles natifs après le clic) : remplacer le fichier suffit, aucun code à changer.
 - `images/` : placeholders (poster de la vidéo, photos, témoignages, image Open Graph). Voir `images/README.md`.
 - `pub/storyboard.md` : concept, direction artistique, script et prompts de la pub.
 - `pub/lecons-projet-precedent.md` : règles et coûts tirés d'un autre projet Higgsfield. À respecter.
@@ -13,27 +13,38 @@ Site vitrine one-page statique (HTML, CSS, JS, sans build) d'un organisme de for
 
 Palette : crème `#FDFAF3`, vert encre `#0F241D`, abricot `#FE9979`, abricot clair `#FFC282`, menthe `#ACE7CC`, pêche `#FDD4C6`, beurre `#FBEFC2`. Polices : Young Serif et Albert Sans (Google Fonts).
 
-## Ce qui reste à faire : la pub vidéo
+## La pub vidéo (livrée)
 
 Objectif : produire seul, sans intervention de la propriétaire, une pub de 45 à 60 s en 16:9, la monter avec musique, **sans voix off** (décision de la propriétaire, 19 octobre 2026), et livrer `video/pub.mp4` prêt pour le site.
 
-### Décisions en attente (à demander en une seule question si elles ne sont pas déjà prises)
+### Décisions prises
 
-- [ ] **Option A** (film complet, 6 plans générés, 46 s, environ 100 crédits avec 25 % de réserve ; version longue d'environ 60 s possible avec 2 ou 3 plans de plus) ou **option B** (4 plans générés, cartons animés, environ 40 s, sous 50 crédits). L'option A demande l'offre Higgsfield Starter (270 crédits), que seule la propriétaire peut acheter. Solde au 19 octobre 2026 : 50 crédits, offre gratuite.
+- [x] **Option B, version 50 s** (décision de la propriétaire, 19 octobre 2026) : 4 plans animés, plans fixes et cartons animés pour compléter, **sans voix off**, dans les 50 crédits de l'offre gratuite.
 
-### Étapes
+### Étapes (faites le 19 octobre 2026)
 
-1. [ ] Vérifier le solde Higgsfield (connecteur Higgsfield, outil `balance`) et que le réseau de la session joint les fichiers Higgsfield : `curl -sS -o /dev/null -w "%{http_code}" https://d2ol7oe51mr4n9.cloudfront.net/` (000 = bloqué). Si c'est bloqué, ajouter le domaine aux domaines autorisés de l'environnement, ou faire le montage dans le bac à sable Higgsfield (`sandbox_exec`, qui a ffmpeg et Internet) et livrer un lien de téléchargement. Les résultats de génération peuvent venir d'un autre hôte CloudFront : vérifier l'URL du premier résultat.
-2. [ ] Générer le portrait de Camille, puis les images de départ (règles de `pub/lecons-projet-precedent.md` : modèle d'édition d'image avec référence, phrase de continuité, négatif commun, « only one woman in the frame »). Toujours `get_cost` avant de générer et rester dans le budget validé.
-3. [ ] Animer chaque plan en **Wan 3.0** (`wan3_0`), 720p, 16:9, durée du script. Réduction de 60 % jusqu'au 31 octobre 2026. Caméra fixe ou léger travelling avant. Une prise par plan, une seconde seulement si la première rate.
-4. [ ] Tenir `pub/journal-generations.md` à jour (prompt, modèle, coût, résultat, gardé ou non) et télécharger chaque résultat tout de suite dans `pub/rendus/` (hors dépôt si trop lourd).
-5. [x] ~~Voix off~~ : pas de voix off (décision de la propriétaire). Les phrases de la colonne « Voix off » du script deviennent des textes à l'écran (cartons ou sous-titres stylés, Young Serif), la musique porte seule la bande-son.
-6. [ ] Musique : le connecteur Higgsfield n'autorise pas la génération de musique seule. La composer en code (originale, libre de droits) : pizzicati et piano hésitants pour le lundi d'avant, même mélodie enjouée pour le lundi d'après, accord final.
-7. [ ] Montage ffmpeg : couper les plans, fondus, bulles (Young Serif, coins arrondis 44 px, un coin pointu, pêche ou menthe), « Lundi d'avant » / « Lundi d'après », carton final animé (soleil abricot qui se lève derrière « Nouveau Lundi », puis « À lundi ? » et nouveaulundi.fr). Normaliser la musique (`loudnorm`).
-8. [ ] Export pour le site : H.264 High, `yuv420p`, 1280×720, 25 i/s, AAC 128 kb/s stéréo, `-movflags +faststart`, moins de 25 Mo (viser environ 7 Mo). Remplacer `video/pub.mp4`.
-9. [ ] Nouvelle image d'aperçu `images/video-poster.jpg` (1920×1080) tirée du plan 6, et mettre à jour `images/og-image.jpg` si besoin.
-10. [ ] Vérifier dans Chromium headless (Playwright est préinstallé ; il ne lit pas le H.264, tester la logique avec une copie WebM) : pas de défilement horizontal de 360 à 1920 px, lecture et retour au poster à la fin.
-11. [ ] Committer sur une branche, pousser, ouvrir une pull request vers `main`, et donner à la propriétaire un résumé simple avec le lien.
+1. [x] Solde vérifié (50 crédits) ; le réseau joint les fichiers Higgsfield (`d8j0ntlcm91z4.cloudfront.net`).
+2. [x] Portrait de Camille (`soul_2`) puis images de départ (`seedream_v5_lite` avec références). Sur l'offre gratuite : une génération à la fois, `gpt_image_2_5` et `nano_banana` refusés.
+3. [x] 4 plans animés en `wan3_0` 720p, 5 s, sans son, tous réussis au premier essai.
+4. [x] `pub/journal-generations.md` à jour ; sources dans `pub/rendus/` (images en JPEG).
+5. [x] Pas de voix off : les phrases du script s'affichent à l'écran.
+6. [x] Musique originale composée en code : `pub/musique.py`.
+7. [x] Montage en code : `pub/montage.py` (cartons, bulles, légendes, soleil, encodage).
+8. [x] `video/pub.mp4` : 50 s, H.264 High, yuv420p, 1280×720, 25 i/s, AAC 128 kb/s, faststart, 7,7 Mo.
+9. [x] `images/video-poster.jpg` tirée du plan 6 ; `og-image.jpg` inchangée (déjà bonne).
+10. [x] Vérifié dans Chromium (copie WebM) : pas de défilement horizontal de 360 à 1920 px, lecture, retour au poster à la fin.
+11. [x] Branche poussée, pull request ouverte.
+
+Total dépensé : 42,24 crédits ; solde restant environ 7,76.
+
+### Refaire le montage
+
+```
+python3 pub/musique.py TRAVAIL/musique.wav
+python3 pub/montage.py TRAVAIL video/pub.mp4
+```
+
+`TRAVAIL` est un dossier temporaire contenant `fonts/` avec `YoungSerif.ttf`, `AlbertSans-Medium.ttf` et `AlbertSans-Bold.ttf` (Google Fonts, format TTF). `IMAGE=12.3 python3 pub/montage.py TRAVAIL test.png` exporte une seule image pour vérifier. Les textes et la durée de chaque séquence sont en bas de `pub/montage.py`.
 
 ## Conventions
 

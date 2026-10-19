@@ -9,7 +9,7 @@ Site statique en HTML, CSS et JavaScript, sans framework ni étape de build. Pou
 ├── css/styles.css
 ├── js/main.js
 ├── images/        placeholders à remplacer (voir images/README.md)
-├── video/pub.mp4  vidéo placeholder à remplacer
+├── video/pub.mp4  la pub (50 s), sources et montage dans pub/
 ├── favicon.ico
 └── .nojekyll
 ```
