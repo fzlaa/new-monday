@@ -28,7 +28,7 @@ Objectif : produire seul, sans intervention de la propriétaire, une pub de 45 �
 3. [x] 4 plans animés en `wan3_0` 720p, 5 s, sans son, tous réussis au premier essai.
 4. [x] `pub/journal-generations.md` à jour ; sources dans `pub/rendus/` (images en JPEG).
 5. [x] Pas de voix off : les phrases du script s'affichent à l'écran.
-6. [x] Musique originale composée en code : `pub/musique.py`.
+6. [x] Musique : d'abord composée en code (`pub/musique.py`), puis remplacée à la demande de la propriétaire par celle de la pub de Léa (`pub/musique-lea.m4a`), coupée à 41 s et enchaînée sur sa fin (voir ci-dessous).
 7. [x] Montage en code : `pub/montage.py` (cartons, bulles, légendes, soleil, encodage).
 8. [x] `video/pub.mp4` : 50 s, H.264 High, yuv420p, 1280×720, 25 i/s, AAC 128 kb/s, faststart, 7,7 Mo.
 9. [x] `images/video-poster.jpg` tirée du plan 4 (Camille à son bureau ; la propriétaire n'aimait pas le gros plan du plan 6) ; `og-image.jpg` inchangée (déjà bonne).
@@ -40,9 +40,11 @@ Total dépensé : 42,24 crédits ; solde restant environ 7,76.
 ### Refaire le montage
 
 ```
-python3 pub/musique.py TRAVAIL/musique.wav
+ffmpeg -i pub/musique-lea.m4a -filter_complex "[0:a]atrim=0:41.25,asetpts=PTS-STARTPTS[a];[0:a]atrim=start=50.35,asetpts=PTS-STARTPTS[b];[a][b]acrossfade=d=0.5:c1=tri:c2=tri,apad=whole_dur=50[m]" -map "[m]" -ar 48000 -ac 2 TRAVAIL/musique.wav
 python3 pub/montage.py TRAVAIL video/pub.mp4
 ```
+
+La musique de Léa a son lever de soleil à 18 s, comme la pub de Camille : on garde ses 41 premières secondes, puis on enchaîne sur sa fin (à partir de 50,35 s) pour qu'elle tombe sur le carton final. L'ancienne musique composée en code se refait avec `python3 pub/musique.py TRAVAIL/musique.wav`.
 
 `TRAVAIL` est un dossier temporaire contenant `fonts/` avec `YoungSerif.ttf`, `AlbertSans-Medium.ttf` et `AlbertSans-Bold.ttf` (Google Fonts, format TTF). `IMAGE=12.3 python3 pub/montage.py TRAVAIL test.png` exporte une seule image pour vérifier. Les textes et la durée de chaque séquence sont en bas de `pub/montage.py`.
 
