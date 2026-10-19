@@ -31,7 +31,7 @@ Objectif : produire seul, sans intervention de la propriétaire, une pub de 45 �
 6. [x] Musique originale composée en code : `pub/musique.py`.
 7. [x] Montage en code : `pub/montage.py` (cartons, bulles, légendes, soleil, encodage).
 8. [x] `video/pub.mp4` : 50 s, H.264 High, yuv420p, 1280×720, 25 i/s, AAC 128 kb/s, faststart, 7,7 Mo.
-9. [x] `images/video-poster.jpg` tirée du plan 6 ; `og-image.jpg` inchangée (déjà bonne).
+9. [x] `images/video-poster.jpg` tirée du plan 4 (Camille à son bureau ; la propriétaire n'aimait pas le gros plan du plan 6) ; `og-image.jpg` inchangée (déjà bonne).
 10. [x] Vérifié dans Chromium (copie WebM) : pas de défilement horizontal de 360 à 1920 px, lecture, retour au poster à la fin.
 11. [x] Branche poussée, pull request ouverte.
 
