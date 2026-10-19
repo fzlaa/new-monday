@@ -5,7 +5,7 @@ Site vitrine one-page statique (HTML, CSS, JS, sans build) d'un organisme de for
 ## Structure
 
 - `index.html`, `css/styles.css`, `js/main.js` : le site, fidèle à la maquette « Grand jour » de Claude Design. Mobile sous 760 px (container queries sur `.page`).
-- `video/pub.mp4` : la pub (50 s). Le lecteur est une balise `<video>` native (poster, bouton de la maquette, contrôles natifs après le clic) : remplacer le fichier suffit, aucun code à changer.
+- `video/pub.mp4` : la pub affichée sur le site, celle de Léa (58 s, `pub/montage_lea.py`, voir `pub/reference-pub-lea.md`), depuis le 19 octobre 2026 au soir. La pub de Camille (50 s) est `video/pub-camille.mp4`, sa couverture `images/video-poster-camille.jpg`. Le lecteur est une balise `<video>` native (poster, bouton de la maquette, contrôles natifs après le clic) : remplacer le fichier suffit, aucun code à changer.
 - `images/` : placeholders (poster de la vidéo, photos, témoignages, image Open Graph). Voir `images/README.md`.
 - `pub/storyboard.md` : concept, direction artistique, script et prompts de la pub.
 - `pub/lecons-projet-precedent.md` : règles et coûts tirés d'un autre projet Higgsfield. À respecter.
@@ -41,7 +41,7 @@ Total dépensé : 42,24 crédits ; solde restant environ 7,76.
 
 ```
 ffmpeg -i pub/musique-lea.m4a -filter_complex "[0:a]atrim=0:41.25,asetpts=PTS-STARTPTS[a];[0:a]atrim=start=50.35,asetpts=PTS-STARTPTS[b];[a][b]acrossfade=d=0.5:c1=tri:c2=tri,apad=whole_dur=50[m]" -map "[m]" -ar 48000 -ac 2 TRAVAIL/musique.wav
-python3 pub/montage.py TRAVAIL video/pub.mp4
+python3 pub/montage.py TRAVAIL video/pub-camille.mp4
 ```
 
 La musique de Léa a son lever de soleil à 18 s, comme la pub de Camille : on garde ses 41 premières secondes, puis on enchaîne sur sa fin (à partir de 50,35 s) pour qu'elle tombe sur le carton final. L'ancienne musique composée en code se refait avec `python3 pub/musique.py TRAVAIL/musique.wav`.
