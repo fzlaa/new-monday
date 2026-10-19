@@ -1,4 +1,4 @@
-Images placeholder à remplacer (mêmes noms, mêmes proportions) :
+Images du site (pour en changer une, garder le même nom et les mêmes proportions). Les photos de l'atelier, de la formatrice et des témoignages ont été générées sur Higgsfield le 19 octobre 2026 (personnes fictives, voir `pub/journal-generations.md`) :
 
 | Fichier | Usage | Format conseillé |
 | --- | --- | --- |

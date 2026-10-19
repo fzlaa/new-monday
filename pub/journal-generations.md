@@ -25,3 +25,15 @@ Les fichiers sont dans `pub/rendus/`.
 **Total dépensé : 42,24 crédits** sur 50 (solde restant : environ 7,76). Aucune seconde prise n'a été nécessaire.
 
 Hors Higgsfield, sans crédit : musique composée en code (`pub/musique.py`), montage, cartons et bulles en code (`pub/montage.py`).
+
+## Photos du site (19 octobre 2026, nouveau compte Higgsfield, 50 crédits)
+
+Modèle `soul_2` (texte seul), une prise par photo, toutes gardées. Personnes fictives.
+
+| Fichier | Format généré | Prompt (résumé) | Coût |
+| --- | --- | --- | --- |
+| `images/atelier.jpg` | 16:9 2k, recadré en 1600×1000 | Atelier autour d'une table en chêne clair, ordinateurs, tasses abricot, formateur qui aide, rires, lumière du matin | 0,12 |
+| `images/formatrice.jpg` | 1:1 2k, recadré en 800×800 | Formatrice d'une cinquantaine d'années, cheveux gris courts, chemisier menthe, salle claire | 0,12 |
+| `images/temoignage-nadia.jpg` | 1:1 1.5k, réduit en 200×200 | Assistante de direction, cheveux longs foncés, chemisier pêche, fond crème | 0,12 |
+| `images/temoignage-thomas.jpg` | 1:1 1.5k, réduit en 200×200 | Contrôleur de gestion, pull vert, chemise bleu clair, fond crème | 0,12 |
+| `images/temoignage-claire.jpg` | 1:1 1.5k, réduit en 200×200 | Juriste, cheveux blonds attachés, lunettes noires, chemisier beurre, fond crème | 0,12 |
