@@ -28,7 +28,24 @@ Un même lundi matin, filmé deux fois, avec un seul personnage : Camille. Avant
 - **Typo des textes** : Young Serif (titres, bulles) et Albert Sans (mentions), les polices du site. Bulles : coins arrondis 44 px, un coin pointu, fond pêche ou menthe, inclinées de 1 à 2°.
 - **Musique** : piano / pizzicati hésitants (lundi d'avant), puis même mélodie enjouée (lundi d'après), environ 100 à 118 BPM. Instrumentale.
 
+## Version livrée (option B, 50 s, sans voix off)
+
+| Temps | Séquence | Source | Texte à l'écran |
+| --- | --- | --- | --- |
+| 0:00 – 0:03,5 | Carton « Lundi d'avant » | montage | « Lundi d'avant » · pastille « Lundi, 9 h 00 » |
+| 0:03,5 – 0:08,5 | Plan 1, Camille se fige devant ses mails | vidéo | « Quarante-sept mails. » |
+| 0:08,5 – 0:13 | Plan fixe : boîte mail pleine, page blanche | image, zoom lent | « Une page blanche. » |
+| 0:13 – 0:18 | Plan 2, le café froid | vidéo | « Et un café froid. Encore. » |
+| 0:18 – 0:23 | Carton : le soleil abricot se lève | montage | « Une formation Nouveau Lundi plus tard… » puis « Lundi d'après » |
+| 0:23 – 0:28 | Plan 4, elle tape et s'adosse en souriant | vidéo | Bulle pêche « Le compte-rendu ? Déjà envoyé. » · Vous, lundi, 9 h 12 |
+| 0:28 – 0:33 | Plan fixe : la visio | image, zoom lent | Bulle menthe « Je vous fais une synthèse d'ici midi. » · Vous, lundi, 10 h 05, puis « Maintenant, c'est vous qu'on vient voir. » |
+| 0:33 – 0:36 | Plan fixe : 18 h, elle part | image, zoom lent | « 18 h. Et on rentre à l'heure. » |
+| 0:36 – 0:41 | Plan 6, le café chaud, regard caméra | vidéo | « L'IA générative, sans jargon, pour les fonctions support. » |
+| 0:41 – 0:50 | Carton final | montage | « Nouveau Lundi » (soleil qui se lève), « À lundi ? », nouveaulundi.fr |
+
 ## Le script (option A, version courte : 46 s)
+
+**Pas de voix off** (décision de la propriétaire, 19 octobre 2026) : les phrases de la colonne « Voix off » s'affichent à l'écran (Young Serif, vert encre sur crème ou en bulle), la musique seule porte la bande-son.
 
 | # | Temps | Durée générée | Image | Voix off | Texte à l'écran |
 | --- | --- | --- | --- | --- | --- |

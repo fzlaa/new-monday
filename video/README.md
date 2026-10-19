@@ -1,1 +1,1 @@
-`pub.mp4` est une vidéo placeholder de 6 secondes. Remplacez-la par la vraie publicité sous le même nom ; la procédure est dans le README à la racine.
+`pub.mp4` est la publicité Nouveau Lundi (50 s, 1280×720, H.264 + AAC). Pour la refaire, voir « Refaire le montage » dans `CLAUDE.md` ; pour la remplacer par une autre vidéo, garder le même nom de fichier.
