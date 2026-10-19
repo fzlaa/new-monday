@@ -37,3 +37,7 @@ La propriétaire veut **la même pub, aux couleurs du site**. Fichier analysé :
 ## Coût et contrainte
 
 8 plans animés pour environ 52 s : avec Wan 3.0 en 720p (1,75 crédit par seconde sur le compte, remise de 60 % jusqu'au 31 octobre 2026), cela fait environ 91 crédits, plus environ 10 crédits d'images, soit **environ 100 crédits**. Le solde est de 7,76 crédits (offre gratuite) : il faut l'offre **Starter** (270 crédits), que seule la propriétaire peut acheter.
+
+## Montage livré (19 octobre 2026)
+
+`video/pub-lea.mp4` (58 s, 12 Mo), fait avec `pub/montage_lea.py` à partir des 8 plans fournis par la propriétaire (`plan1.mp4` à `plan8.mp4`, non versionnés car lourds) et de la musique de la pub de référence. Aucun crédit Higgsfield dépensé. Textes dans le style de la pub de 50 s (« pub DA ») : cartons crème et texte vert encre en Young Serif, étiquettes beurre (« Lundi dernier »), menthe (« Nouveau lundi ») et pêche (« La formation »), bulle pêche au plan 6. Carton de fin : mélange des deux fins, avec le grand soleil abricot qui monte du bas (référence) et la signature « Nouveau Lundi » avec son petit soleil, puis « À lundi ? » et nouveaulundi.fr (pub DA), sur fond crème. Pas encore mise sur le site : `video/pub.mp4` reste la pub de 50 s.
