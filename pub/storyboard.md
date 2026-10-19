@@ -30,6 +30,8 @@ Un même lundi matin, filmé deux fois, avec un seul personnage : Camille. Avant
 
 ## Le script (option A, version courte : 46 s)
 
+**Pas de voix off** (décision de la propriétaire, 19 octobre 2026) : les phrases de la colonne « Voix off » s'affichent à l'écran (Young Serif, vert encre sur crème ou en bulle), la musique seule porte la bande-son.
+
 | # | Temps | Durée générée | Image | Voix off | Texte à l'écran |
 | --- | --- | --- | --- | --- | --- |
 | 1 | 0:00 – 0:08 | 8 s | Lundi d'avant, plan moyen au bureau. Camille pose sa tasse, regarde son écran, se fige, soupire. | « Lundi, 9 heures. Quarante-sept mails. Une page blanche. » | « Lundi d'avant » |
